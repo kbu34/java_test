@@ -2,15 +2,9 @@ import java.util.Date;
 
 public class TransactionApi {
 
-    private String name;
-    private long cardNum;
-    private int cvc;
-    private Date expiryDate;
-
-    private void setName(String newName) {
+    private void validateName(String newName) {
         try {
-            this.name = newName;
-            if (this.name.length() > 50) {
+            if (newName != null && newName.length() > 50) {
                 throw new Exception("Invalid name");
             }
         } catch (Exception e) {
@@ -18,35 +12,42 @@ public class TransactionApi {
         }
     }
 
-    private void setCardNum(long newNum) {
+    private void validateCardNum(long newNum) {
         try {
-            this.cardNum = newNum;
+            if (newNum != 0) {
+                /// check valid credit cards storage
+                throw new Exception("Invalid number");
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    private void setCvc(int newCvc) {
+    private void validateCvc(int newCvc) {
         try {
-            this.cvc = newCvc;
+            if (newCvc != (int)newCvc) {
+                throw new Exception("Invalid cvc");
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    private void setExpiryDate(Date newExpiry) {
+    private void validateExpiryDate(Date newExpiry) {
         try {
-            this.expiryDate = newExpiry;
+            if (newExpiry != (Date)newExpiry) {
+                throw new Exception("Invalid expiry date");
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
     public void setVariables(String newName, long newNum, int newCvc, Date newExpiry) {
-        this.setName(newName);
-        this.setCardNum(newNum);
-        this.setCvc(newCvc);
-        this.setExpiryDate(newExpiry);
+        this.validateName(newName);
+        this.validateCardNum(newNum);
+        this.validateCvc(newCvc);
+        this.validateExpiryDate(newExpiry);
     }
 
 }
