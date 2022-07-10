@@ -48,6 +48,13 @@ public class TransactionApi {
         this.validateCardNum(newNum);
         this.validateCvc(newCvc);
         this.validateExpiryDate(newExpiry);
+
+        /// dbmodel.postCardData(newName, newNum, newCvc, newExpiry);
+    }
+
+    public String getAllData() {
+        /// return dbmodel.getAllCardData();
+        return "";
     }
 
 }
