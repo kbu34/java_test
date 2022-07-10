@@ -57,4 +57,9 @@ public class TransactionApi {
         return "";
     }
 
+    public String getOne(long cardNum) {
+        /// return dbmodel.getOneCard(cardNum);
+        return "";
+    }
+
 }
