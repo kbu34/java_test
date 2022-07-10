@@ -7,7 +7,7 @@ public class TransactionApi {
     private int cvc;
     private Date expiryDate;
 
-    public void setName(String newName) {
+    private void setName(String newName) {
         try {
             this.name = newName;
             if (this.name.length() > 50) {
@@ -18,7 +18,7 @@ public class TransactionApi {
         }
     }
 
-    public void setCardNum(long newNum) {
+    private void setCardNum(long newNum) {
         try {
             this.cardNum = newNum;
         } catch (Exception e) {
@@ -26,7 +26,7 @@ public class TransactionApi {
         }
     }
 
-    public void setCvc(int newCvc) {
+    private void setCvc(int newCvc) {
         try {
             this.cvc = newCvc;
         } catch (Exception e) {
@@ -34,12 +34,19 @@ public class TransactionApi {
         }
     }
 
-    public void setExpiryDate(Date newExpiry) {
+    private void setExpiryDate(Date newExpiry) {
         try {
             this.expiryDate = newExpiry;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void setVariables(String newName, long newNum, int newCvc, Date newExpiry) {
+        this.setName(newName);
+        this.setCardNum(newNum);
+        this.setCvc(newCvc);
+        this.setExpiryDate(newExpiry);
     }
 
 }
