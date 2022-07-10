@@ -43,7 +43,7 @@ public class TransactionApi {
         }
     }
 
-    public void setVariables(String newName, long newNum, int newCvc, Date newExpiry) {
+    public void postData(String newName, long newNum, int newCvc, Date newExpiry) {
         this.validateName(newName);
         this.validateCardNum(newNum);
         this.validateCvc(newCvc);
